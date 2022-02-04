@@ -4,9 +4,8 @@
   "description": "hypothetical core organizational dependency",
   "main": "ingredient.js",
   "scripts": {
-    "preinstall": "git clone https://github.com/sourdough/wildtype.git ./lib/wildtype || git -C ./lib/wildtype fetch --all --tags ",
-    "install": "git -C ./lib/wildtype stash && git -C ./lib/wildtype checkout tags/v0.0.2 ",
-    "postinstall": "echo 'dependencies ./lib/wildtype' && git -C ./lib/wildtype status",
+    "preinstall": "rm -rf ./lib/wildtype && git clone https://github.com/sourdough/wildtype.git ./lib/wildtype",
+    "postinstall": "git -C ./lib/wildtype fetch --all --tags && git -C ./lib/wildtype stash && git -C ./lib/wildtype checkout tags/v0.0.2",
     "test": "echo 'npm dependency that manages its own with git'"
   },
   "repository": {
